@@ -1,0 +1,59 @@
+<div class="callfor-popup">
+<div class="container">
+        <div class="bird-container bird-container--one" onclick="playAudio()">
+            <div class="bird bird--one"></div>
+        </div>
+        <div class="bird-container bird-container--two" onclick="playAudio()">
+            <div class="bird bird--two"></div>
+        </div>
+        <div class="bird-container bird-container--three" onclick="playAudio()">
+            <div class="bird bird--three"></div>
+        </div>
+        <div class="bird-container bird-container--four" onclick="playAudio()">
+            <div class=" bird bird--four"></div>
+        </div>
+</div>
+</div>
+    <script>
+        require(
+            [
+                'jquery'
+            ],
+            function ($){
+               $(".bird-container").on("click", function () {
+                   var AjaxUrl = "coupon/index/index";
+                   $.ajax({
+                       showLoader: true,
+                       url: AjaxUrl,
+                       data: "",
+                       type: "POST"
+                   }).done(function (gggg) {
+                        alert(gggg);
+                       return true;
+                   });
+               });
+            });
+    </script>
+<script>
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal'
+        ],
+        function (
+            $,
+            modal
+        )
+        {
+            var modaloption = {
+                type: 'popup',
+                modalClass: 'modal-popup',
+                responsive: true,
+                innerScroll: true,
+                clickableOverlay: true,
+                buttons: []
+           };
+           var callforoption = modal(modaloption, $('.callfor-popup'));
+                 $('.callfor-popup').modal('openModal');
+           });
+</script>
